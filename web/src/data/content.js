@@ -13,6 +13,7 @@ export const navLinks = [
   { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -351,3 +352,49 @@ export const insights = [
 
 /** Testimonials intentionally empty until genuine client quotes are supplied. */
 export const testimonials = []
+
+/** Open roles — keep empty or real only; no invented positions. */
+export const careers = []
+
+export const careerBenefits = [
+  {
+    id: 'craft',
+    title: 'Meaningful craft',
+    description: 'Ship products that help Nepali businesses operate better every day.',
+  },
+  {
+    id: 'growth',
+    title: 'Growth with mentorship',
+    description: 'Learn modern stacks with clear feedback and ownership.',
+  },
+  {
+    id: 'flexibility',
+    title: 'Flexible collaboration',
+    description: 'Hybrid-friendly ways of working focused on outcomes.',
+  },
+  {
+    id: 'impact',
+    title: 'Local impact, global tech',
+    description: 'Build from Nepal with standards that travel anywhere.',
+  },
+]
+
+export const whyChooseUs = [
+  {
+    title: 'Partner mindset',
+    description: 'We stay with you after launch — systems, support and iteration.',
+  },
+  {
+    title: 'Business-first delivery',
+    description: 'Technology choices follow outcomes, not trend checklists.',
+  },
+  {
+    title: 'Nepal context',
+    description: 'Local operations knowledge with modern engineering practices.',
+  },
+  {
+    title: 'Clear communication',
+    description: 'Transparent timelines, scoped milestones and honest tradeoffs.',
+  },
+]
+

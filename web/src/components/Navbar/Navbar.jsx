@@ -72,7 +72,7 @@ export function Navbar() {
               <span className="text-cyan">Mitra</span>
             </Link>
 
-            <nav className="hidden items-center gap-6 xl:gap-7 lg:flex" aria-label="Primary">
+            <nav className="hidden items-center gap-4 text-[13px] xl:gap-6 xl:text-sm lg:flex" aria-label="Primary">
               {navLinks.map((link) => (
                 <NavLink key={link.href} to={link.href} end={link.href === '/'} className={linkClass}>
                   {link.label}
@@ -81,7 +81,7 @@ export function Navbar() {
             </nav>
 
             <div className="hidden lg:block">
-              <Button href="/contact" className="h-11 text-xs">
+              <Button href="/contact" className="h-11 text-xs" variant="accent" icon>
                 Start a Project
               </Button>
             </div>
@@ -137,7 +137,7 @@ export function Navbar() {
             </nav>
 
             <div className="space-y-6">
-              <Button href="/contact" onClick={() => setOpen(false)}>
+              <Button href="/contact" onClick={() => setOpen(false)} variant="accent" icon>
                 Start a Project
               </Button>
               <p className="max-w-xs text-sm text-body">{brand.tagline}</p>

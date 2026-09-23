@@ -40,8 +40,10 @@ export function ContactCTA() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/contact">Start a Project</Button>
-            <Button href={`mailto:${brand.email}`} variant="secondary" icon={false}>
+            <Button href="/contact" variant="accent" icon>
+              Start a Project
+            </Button>
+            <Button href={`mailto:${brand.email}`} variant="secondary">
               Contact TechMitra
             </Button>
           </div>
@@ -99,7 +101,7 @@ export function ContactCTA() {
             />
           </label>
           <div className="flex items-center gap-4">
-            <Button type="submit" icon={false}>
+            <Button type="submit" variant="accent" icon>
               Send Message
             </Button>
             {status === 'sent' && (

@@ -8,7 +8,8 @@ function isInternalPath(href) {
 }
 
 /**
- * Adapted from 21st.dev Motion Button (Shatlyk1011) — restyled for TechMitra.
+ * TechMitra buttons — solid pill CTAs inspired by the corporate system,
+ * using brand electric/cyan/gold (gold only for accent conversion).
  */
 export const Button = forwardRef(function Button(
   {
@@ -16,7 +17,7 @@ export const Button = forwardRef(function Button(
     variant = 'primary',
     href,
     className,
-    icon = true,
+    icon = false,
     type = 'button',
     onClick,
     ...props
@@ -24,36 +25,25 @@ export const Button = forwardRef(function Button(
   ref,
 ) {
   const classes = cn(
-    'group relative inline-flex h-12 items-center overflow-hidden rounded-full border px-1 text-sm font-medium transition-colors duration-300 cursor-pointer focus-visible:outline-none',
+    'group inline-flex h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold tracking-tight transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/60 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight',
     variant === 'primary' &&
-      'border-electric/40 bg-deep-navy/80 text-himalayan hover:border-cyan/50',
+      'bg-electric text-white hover:bg-[#3b8bff] shadow-[0_10px_30px_rgba(22,119,255,0.35)]',
+    variant === 'accent' &&
+      'bg-gold text-midnight hover:brightness-105 shadow-[0_10px_30px_rgba(245,185,66,0.35)]',
     variant === 'secondary' &&
-      'border-white/15 bg-transparent text-himalayan hover:border-white/35',
-    variant === 'ghost' && 'border-transparent bg-transparent text-muted hover:text-himalayan',
+      'border border-white/25 bg-transparent text-himalayan hover:border-white/50 hover:bg-white/5',
+    variant === 'secondary-light' &&
+      'border border-deep-navy/20 bg-white text-deep-navy hover:border-electric/40 hover:text-electric',
+    variant === 'ghost' && 'bg-transparent text-body hover:text-himalayan',
     className,
   )
 
   const content = (
     <>
-      {variant === 'primary' && (
-        <span
-          aria-hidden
-          className="absolute left-1 top-1 block h-10 w-10 rounded-full bg-electric transition-all duration-500 group-hover:w-[calc(100%-0.5rem)]"
-        />
+      <span>{children}</span>
+      {icon && (
+        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
       )}
-      {icon && variant === 'primary' && (
-        <span className="relative z-10 ml-2 flex h-8 w-8 items-center justify-center">
-          <ArrowRight className="h-4 w-4 text-himalayan transition-transform duration-500 group-hover:translate-x-0.5" />
-        </span>
-      )}
-      <span
-        className={cn(
-          'relative z-10 px-4 py-2 whitespace-nowrap',
-          variant === 'primary' && 'pl-2',
-        )}
-      >
-        {children}
-      </span>
     </>
   )
 

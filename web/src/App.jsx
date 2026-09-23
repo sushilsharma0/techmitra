@@ -7,6 +7,7 @@ import WorkPage from './pages/WorkPage'
 import AboutPage from './pages/AboutPage'
 import InsightsPage from './pages/InsightsPage'
 import ContactPage from './pages/ContactPage'
+import CareersPage from './pages/CareersPage'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: 'work', element: <WorkPage /> },
       { path: 'about', element: <AboutPage /> },
       { path: 'insights', element: <InsightsPage /> },
+      { path: 'careers', element: <CareersPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],

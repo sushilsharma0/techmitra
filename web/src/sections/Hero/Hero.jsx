@@ -52,12 +52,14 @@ export function Hero() {
           >
             Digital products, software and technology solutions built for ambitious businesses.
           </p>
-          <div ref={ctaRef} className="mt-10 flex flex-wrap gap-4 opacity-0">
-            <Button href="/contact">Start a Project</Button>
-            <Button href="/work" variant="secondary" icon={false}>
-              Explore Our Work
-            </Button>
-          </div>
+            <div ref={ctaRef} className="mt-10 flex flex-wrap gap-4 opacity-0">
+              <Button href="/contact" variant="accent" icon>
+                Start a Project
+              </Button>
+              <Button href="/work" variant="secondary">
+                Explore Our Work
+              </Button>
+            </div>
         </div>
       </Container>
 

@@ -47,7 +47,7 @@ export function Portfolio() {
                 <p className="mt-5 max-w-xl text-base text-body md:text-lg">{project.description}</p>
                 <p className="mt-6 text-sm text-cyan">{project.tech}</p>
                 <div className="mt-8">
-                  <Button href="/contact" variant="secondary" icon={false}>
+                  <Button href="/contact" variant="secondary">
                     View Case Study
                   </Button>
                 </div>

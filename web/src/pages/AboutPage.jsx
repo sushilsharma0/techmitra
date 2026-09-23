@@ -1,6 +1,14 @@
-import { brand, processSteps, values } from '../data/content'
-import { Card, Container } from '../components/ui/primitives'
-import { Breadcrumb, PageCTA, PageHero, usePageTitle } from '../components/Page/PageChrome'
+import { Compass, Eye, Handshake, Lightbulb, Users } from 'lucide-react'
+import { brand, processSteps, values, whyChooseUs } from '../data/content'
+import { Container } from '../components/ui/primitives'
+import { PageCTA, PageHero, SectionHeader, usePageTitle } from '../components/Page/PageChrome'
+
+const VALUE_ICONS = {
+  Innovation: Lightbulb,
+  Trust: Handshake,
+  Growth: Compass,
+  Partnership: Users,
+}
 
 export default function AboutPage() {
   usePageTitle('About')
@@ -8,7 +16,7 @@ export default function AboutPage() {
   return (
     <main id="main">
       <PageHero
-        eyebrow="About TechMitra"
+        eyebrow="About"
         title={
           <>
             Born in Nepal.
@@ -18,64 +26,95 @@ export default function AboutPage() {
         }
         description="TechMitra is a technology partner focused on practical, scalable digital solutions for ambitious businesses."
         secondaryCta={{ label: 'Our Services', to: '/services' }}
+        visual={
+          <div className="relative z-10 flex flex-col items-center gap-3 text-center">
+            <Users className="h-20 w-20 text-cyan" strokeWidth={1.25} />
+            <p className="font-display text-sm text-himalayan">Technology · Partnership · Nepal</p>
+          </div>
+        }
       />
 
-      <section className="section-solid relative z-[var(--z-content)] py-20 md:py-28">
+      <section className="band-light py-20 md:py-28">
         <Container>
-          <Breadcrumb items={[{ label: 'About' }]} />
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card className="md:p-8">
-              <p className="label-micro text-cyan">Mission</p>
-              <p className="mt-4 text-lg text-himalayan">
-                Be the technology partner that helps Nepali and global businesses move forward with
-                clarity and craft.
-              </p>
-            </Card>
-            <Card className="md:p-8">
-              <p className="label-micro text-gold">Vision</p>
-              <p className="mt-4 text-lg text-himalayan">
-                Build the digital future from Nepal — with systems that scale beyond borders.
-              </p>
-            </Card>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value) => (
-              <Card key={value.title}>
-                <p className="font-display text-xl">{value.title}</p>
-                <p className="mt-3 text-sm text-body">{value.description}</p>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
-              <p className="label-micro text-cyan">Who we are</p>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl">
-                A technology friend for teams that want to grow.
-              </h2>
-              <p className="mt-5 text-body">
-                &ldquo;Mitra&rdquo; means friend and trusted companion. We design, build and operate
-                digital products with local understanding and modern engineering — from Kathmandu to
-                wherever your customers are.
-              </p>
-              <p className="mt-4 text-body">
-                Based in {brand.location}, we partner on websites, mobile apps, ERP, SaaS, cloud,
-                AI and ongoing support.
+              <SectionHeader
+                light
+                eyebrow="Our story"
+                title="A technology friend for teams that want to grow."
+                description={`“Mitra” means friend and trusted companion. We design, build and operate digital products with local understanding and modern engineering — from ${brand.location} to wherever your customers are.`}
+              />
+              <p className="max-w-2xl text-slate-600">
+                We partner on websites, mobile apps, ERP, SaaS, cloud, AI and ongoing support —
+                always with clear communication and practical delivery.
               </p>
             </div>
-            <Card>
-              <p className="label-micro text-gold">How we work</p>
-              <ol className="mt-5 space-y-4">
-                {processSteps.map((step) => (
-                  <li key={step.id} className="flex gap-4 border-b border-white/8 pb-4 last:border-0">
-                    <span className="font-display text-sm text-cyan">{step.number}</span>
-                    <span className="font-display text-lg">{step.title}</span>
-                  </li>
-                ))}
-              </ol>
-            </Card>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <article className="card-light p-6">
+                <Eye className="h-6 w-6 text-electric" />
+                <p className="mt-4 label-micro">Mission</p>
+                <p className="mt-2 text-sm text-slate-700">
+                  Help businesses move forward with clarity and craft.
+                </p>
+              </article>
+              <article className="card-light p-6">
+                <Compass className="h-6 w-6 text-electric" />
+                <p className="mt-4 label-micro">Vision</p>
+                <p className="mt-2 text-sm text-slate-700">
+                  Build the digital future from Nepal with systems that scale.
+                </p>
+              </article>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="band-dark py-20 md:py-28">
+        <Container>
+          <SectionHeader eyebrow="Values" title="What guides every engagement." />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((value) => {
+              const Icon = VALUE_ICONS[value.title] || Lightbulb
+              return (
+                <article
+                  key={value.title}
+                  className="rounded-2xl border border-white/10 bg-deep-navy/50 p-6"
+                >
+                  <span className="icon-tile">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 font-display text-xl">{value.title}</h3>
+                  <p className="mt-3 text-sm text-body">{value.description}</p>
+                </article>
+              )
+            })}
+          </div>
+        </Container>
+      </section>
+
+      <section className="band-light py-20 md:py-28">
+        <Container>
+          <SectionHeader
+            light
+            eyebrow="How we work"
+            title="From discovery to growth."
+          />
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+            {processSteps.map((step) => (
+              <li key={step.id} className="card-light p-4 text-center">
+                <p className="font-display text-sm text-electric">{step.number}</p>
+                <p className="mt-2 font-display text-base text-deep-navy">{step.title}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {whyChooseUs.map((item) => (
+              <article key={item.title} className="card-light p-5">
+                <h3 className="font-display text-lg text-deep-navy">{item.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{item.description}</p>
+              </article>
+            ))}
           </div>
         </Container>
       </section>

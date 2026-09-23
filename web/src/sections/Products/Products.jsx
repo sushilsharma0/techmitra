@@ -41,7 +41,7 @@ export function Products() {
                 </ul>
                 <p className="mt-4 text-xs text-body">{product.tech.join(' · ')}</p>
                 <div className="mt-6">
-                  <Button href="/contact" variant="secondary" icon={false}>
+                  <Button href="/contact" variant="secondary">
                     View Project
                   </Button>
                 </div>
